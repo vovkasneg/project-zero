@@ -1,6 +1,19 @@
 from pygame import *
 from random import randint
 
+
+window = display.set_mode((800,600))
+display.set_caption("Project Zero")
+background = transform.scale(image.load("galaxy.jpg"),(800,600))
+
+
+
+
+
+
+
+
+
 class GameSprite(sprite.Spite):
     def __init__(self, player_image, player_x, player_y, size_x, size_y, player_speed):
         super().__init__()
