@@ -1,18 +1,4 @@
 from pygame import *
-from random import randint
-
-
-window = display.set_mode((800,600))
-display.set_caption("Project Zero")
-background = transform.scale(image.load("galaxy.jpg"),(800,600))
-
-
-
-
-
-
-
-
 
 class GameSprite(sprite.Spite):
     def __init__(self, player_image, player_x, player_y, size_x, size_y, player_speed):
@@ -36,3 +22,7 @@ class Player(GameSprite):
             self.rect.x -= self.speed
         if keys[K_s] and self.rect.y < 450:
             self.rect.y += self.speed
+
+window = display.set_mode((800,600))
+display.set_caption("Project Zero")
+background = transform.scale(image.load("background.png"),(800,600))
