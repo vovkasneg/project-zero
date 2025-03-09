@@ -18,10 +18,19 @@ class Player(GameSprite):
             self.rect.x -= self.speed
         if keys[K_d] and self.rect.x < 650:
             self.rect.y += self.speed
-        if keys[K_w] and self.rect.y > 5:
-            self.rect.x -= self.speed
-        if keys[K_s] and self.rect.y < 450:
-            self.rect.y += self.speed
+        if keys[K_SPACE]:
+            self.rect.y -= 20
+
+class Enemy(GameSprite):
+    def __init__(self, x, y, speed):
+        super().__init__(x, y, speed)
+        self.direction = 1
+    def update(self):
+        self.rect.x += self.speed * self.direction
+    if self.rect.x >= 800: 
+        self.direction = -1  
+    elif self.rect.x <= 0: 
+        self.direction = 1
 
 window = display.set_mode((800,600))
 display.set_caption("Project Zero")
