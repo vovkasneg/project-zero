@@ -35,3 +35,19 @@ class Enemy(GameSprite):
 window = display.set_mode((800,600))
 display.set_caption("Project Zero")
 background = transform.scale(image.load("background.png"),(800,600))
+font = font.SysFont('Arial', 80)
+pobeda = font.render('Ви виграли, дякуємо за гру!', True, (255, 255, 255))
+proigrish = font.render('Нажаль, ви не змогли пройти гру...', True, (180, 0, 0))
+
+PlayerX1 = Player("Player.png", 200,350,50,50,30)
+Enemy1 = Enemy("Enemy1.png", randint(80,600), randint(-100,0), 50, randint(1,6)
+
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+    if finish != True:
+        if sprite.spritecollide(PlayerX1, Enemy1, False):
+            finish = True
+            window.blit(proigrish, (200,200))
+    display.update()
