@@ -40,7 +40,7 @@ pobeda = font.render('Ви виграли, дякуємо за гру!', True, (
 proigrish = font.render('Нажаль, ви не змогли пройти гру...', True, (180, 0, 0))
 
 PlayerX1 = Player("Player.png", 200,350,50,50,30)
-Enemy1 = Enemy("Enemy1.png", randint(80,600), randint(-100,0), 50, randint(1,6)
+Enemy1 = Enemy("Enemy1.png", randint(80,600), randint(-100,0), 50, randint(1,6))
 
 while game:
     for e in event.get():
