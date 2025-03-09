@@ -22,15 +22,16 @@ class Player(GameSprite):
             self.rect.y -= 20
 
 class Enemy(GameSprite):
-    def __init__(self, x, y, speed):
-        super().__init__(x, y, speed)
-        self.direction = 1
+    direction = "left"
     def update(self):
-        self.rect.x += self.speed * self.direction
-    if self.rect.x >= 800: 
-        self.direction = -1  
-    elif self.rect.x <= 0: 
-        self.direction = 1
+        if self.rect.x <= 450:
+            self.direction = "right"
+        if self.rect.x >= 600:
+            self.direction = "left"
+        if self.direction == "left":
+            self.rect.x -= self.speed
+        else:
+            self.rect.x += self.speed
 
 window = display.set_mode((800,600))
 display.set_caption("Project Zero")
