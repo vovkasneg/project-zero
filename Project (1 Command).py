@@ -77,7 +77,8 @@ proigrish = font.render('Нажаль, ви не змогли пройти гр�
 
 # завантажуємо звуки
 mixer.init()
-
+# звуки під час подій 
+#click=mixer.Sound('музичний файл.ogg')
 
 PlayerX1 = Player("Player.png", 200,400,200,200,10)
 #Enemy1 = Enemy("Enemy1.png", randint(80,600), randint(-100,0), 50, 50, randint(1,6))
@@ -96,6 +97,7 @@ while game:
         PlayerX1.update()
 
         #if sprite.spritecollide(PlayerX1, Enemy1, False):
+            # click.play()
             #finish = True
             #window.blit(proigrish, (200,200))
     display.update()
