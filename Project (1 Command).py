@@ -13,8 +13,8 @@ class GameSprite(sprite.Sprite):
         window.blit(self.image, (self.rect.x, self.rect.y))
 
 class Player(GameSprite):
-    def __init__(self, x, y, speed):
-        super().__init__(x, y, speed)
+    def __init__(self, x, y, speed, size_x, size_y, player_speed):
+        super().__init__(x, y, speed, size_x, size_y, player_speed)
         self.y_speed = 0 
         self.on_ground = False
     def update(self):
@@ -24,12 +24,12 @@ class Player(GameSprite):
         if keys[K_d] and self.rect.x < 650:
             self.rect.x += self.speed
         if keys[K_SPACE] and self.on_ground:
-            self.y_speed = -15
+            self.y_speed = -17
             self.on_ground = False
         self.y_speed += 1 
         self.rect.y += self.y_speed
-        if self.rect.y >= 400:
-            self.rect.y = 400
+        if self.rect.y >= 340:
+            self.rect.y = 340
             self.y_speed = 0
             self.on_ground = True
 
@@ -74,7 +74,7 @@ font = font.SysFont(None, 80)
 pobeda = font.render('Ви виграли, дякуємо за гру!', True, (255, 255, 255))
 proigrish = font.render('Нажаль, ви не змогли пройти гру...', True, (180, 0, 0))
 
-PlayerX1 = Player("Player.png", 200,400,200,200,30)
+PlayerX1 = Player("Player.png", 200,400,200,200,10)
 #Enemy1 = Enemy("Enemy1.png", randint(80,600), randint(-100,0), 50, 50, randint(1,6))
 game = True
 finish = False
