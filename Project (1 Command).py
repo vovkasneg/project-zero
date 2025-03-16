@@ -74,6 +74,11 @@ font = font.SysFont(None, 80)
 pobeda = font.render('Ви виграли, дякуємо за гру!', True, (255, 255, 255))
 proigrish = font.render('Нажаль, ви не змогли пройти гру...', True, (180, 0, 0))
 
+
+# завантажуємо звуки
+mixer.init()
+
+
 PlayerX1 = Player("Player.png", 200,400,200,200,10)
 #Enemy1 = Enemy("Enemy1.png", randint(80,600), randint(-100,0), 50, 50, randint(1,6))
 game = True
