@@ -13,14 +13,25 @@ class GameSprite(sprite.Sprite):
         window.blit(self.image, (self.rect.x, self.rect.y))
 
 class Player(GameSprite):
+    def __init__(self, x, y, speed):
+        super().__init__(x, y, speed)
+        self.y_speed = 0 
+        self.on_ground = False
     def update(self):
         keys = key.get_pressed()
         if keys[K_a] and self.rect.x > 5:
             self.rect.x -= self.speed
         if keys[K_d] and self.rect.x < 650:
             self.rect.x += self.speed
-        if keys[K_SPACE]:
-            self.rect.y -= 20
+        if keys[K_SPACE] and self.on_ground:
+            self.y_speed = -15
+            self.on_ground = False
+        self.y_speed += 1 
+        self.rect.y += self.y_speed
+        if self.rect.y >= 400:
+            self.rect.y = 400
+            self.y_speed = 0
+            self.on_ground = True
 
 class Enemy(GameSprite):
     direction = "left"
