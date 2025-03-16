@@ -84,6 +84,9 @@ PlayerX1 = Player("Player.png", 200,400,200,200,10)
 game = True
 finish = False
 while game:
+    # фонова музика
+    #mixer.music.load('game.ogg')
+    #mixer.music.play()
     for e in event.get():
         if e.type == QUIT:
             game = False
