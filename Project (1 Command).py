@@ -77,8 +77,8 @@ proigrish = font.render('Нажаль, ви не змогли пройти гр�
 
 # завантажуємо звуки
 mixer.init()
-# звуки під час подій 
-#click=mixer.Sound('музичний файл.ogg')
+main = mixer.Sound("main_music.ogg")
+main.play()
 
 PlayerX1 = Player("Player.png", 200,400,200,200,10)
 #Enemy1 = Enemy("Enemy1.png", randint(80,600), randint(-100,0), 50, 50, randint(1,6))
