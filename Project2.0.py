@@ -94,11 +94,27 @@ enemies = sprite.Group()
 PlayerX1 = Player("Player.png", 50,400,50,100,10)
 enemy_image_l="Enemy_l.png"
 enemy_image_r="Enemy_r.png"
-Enemy1 = Enemy(enemy_image_l, 700, 500, 50, 100, randint(1,6))
+Enemy1 = Enemy(enemy_image_l, 800, 400, 50, 100, randint(1,4))
+Enemy2 = Enemy(enemy_image_l, 2000, 400, 50, 100, randint(1,4))
+Enemy3 = Enemy(enemy_image_l, 5000, 400, 50, 100, randint(1,4))
+Enemy4 = Enemy(enemy_image_l, 7000, 400, 50, 100, randint(1,4))
+Enemy5 = Enemy(enemy_image_l, 8500, 400, 50, 100, randint(1,4))
+Enemy6 = Enemy(enemy_image_l, 10000, 400, 50, 100, randint(1,4))
+Enemy7 = Enemy(enemy_image_l, 11500, 400, 50, 100, randint(1,4))
+Enemy8 = Enemy(enemy_image_l, 13000, 400, 50, 100, randint(1,4))
+Enemy9 = Enemy(enemy_image_l, 14500, 400, 50, 100, randint(1,4))
 final_sprite=GameSprite("menu.png",20000,200,300,300,0)
 
 all_sprites.add(PlayerX1)
-all_sprites.add(Enemy1) 
+all_sprites.add(Enemy1)
+all_sprites.add(Enemy2)
+all_sprites.add(Enemy3)
+all_sprites.add(Enemy4) 
+all_sprites.add(Enemy5) 
+all_sprites.add(Enemy6) 
+all_sprites.add(Enemy7) 
+all_sprites.add(Enemy8) 
+all_sprites.add(Enemy9)  
                                 
 all_sprites.add(final_sprite)
 game = False
@@ -106,7 +122,7 @@ finish = False
 
 win_width = 800 
 win_height = 600
-left_bound = win_width / 40       # границы, за которые персонаж не выходит (начинает ехать фон)
+left_bound = win_width / 20       # границы, за которые персонаж не выходит (начинает ехать фон)
 right_bound = win_width - 8 * left_bound
 shift = 0
 
@@ -152,6 +168,14 @@ while game:
         PlayerX1.update()
         
         Enemy1.update(450,700)
+        Enemy2.update(450,700)
+        Enemy3.update(450,700)
+        Enemy4.update(450,700)
+        Enemy5.update(450,700)
+        Enemy6.update(450,700)
+        Enemy7.update(450,700)
+        Enemy8.update(450,700)
+        Enemy9.update(450,700)
 
          # проверяем границы экрана: 
         if (
@@ -177,6 +201,30 @@ while game:
        
 
         if sprite.collide_rect(PlayerX1, Enemy1):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy2):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy3):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy4):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy5):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy6):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy7):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy8):
+            finish = True
+            window.blit(proigrish, (100,200))
+        if sprite.collide_rect(PlayerX1, Enemy9):
             finish = True
             window.blit(proigrish, (100,200))
         if sprite.collide_rect(PlayerX1, final_sprite):
