@@ -117,8 +117,10 @@ display.set_caption("Project Zero")
 background = transform.scale(image.load("background2.png"),(800,600))
 
 font1 = font.SysFont(None, 80)
+font2 = font.SysFont(None, 30)
 pobeda = font1.render('Ви виграли, дякуємо за гру!', True, (255, 255, 255))
 proigrish = font1.render('Нажаль, ви не змогли пройти гру...', True, (180, 0, 0))
+donut_score = font2.render('Пончики:' +str(score_d), True, (255, 255, 255))
 
 mixer.init()
 main = mixer.Sound("main.music.ogg")
