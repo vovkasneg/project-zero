@@ -268,6 +268,8 @@ while game:
             game = False
     if finish != True:
         window.blit(background, (0,0))
+        window.blit(donut_score, (10,10))
+        window.blit(background, (0,0))
         PlayerX1.reset()
         PlayerX1.update()
         
