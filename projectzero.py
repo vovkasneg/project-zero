@@ -315,8 +315,10 @@ while game:
         # рисуем фон со сдвигом
         local_shift = shift % 800 
         window.blit(background, (local_shift, 0)) 
+        window.blit(donut_score, (10,10))
         if local_shift != 0:
             window.blit(background, (local_shift - 800, 0)) 
+            window.blit(donut_score, (10,10))
 
         # нарисуем все спрайты на экранной поверхности до проверки на выигрыш/проигрыш
         # если в этой итерации цикла игра закончилась, то новый фон отрисуется поверх персонажей
@@ -377,6 +379,13 @@ while game:
         if sprite.collide_rect(PlayerX1, Bird9):
             finish = True
             window.blit(proigrish, (100,200))
+         for d in donuts:
+            if sprite.collide_rect(PlayerX1, d):
+                donuts.remove(d)
+                d.kill()
+                score_d = score_d + 1
+                donut_score = font2.render('Пончики:' +str(score_d), True, (255, 255, 255))
+                window.blit(donut_score, (10,10))
 
         if sprite.spritecollide(PlayerX1, benches_g, False):
             k=1
