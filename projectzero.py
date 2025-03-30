@@ -179,6 +179,7 @@ donut2 = GameSprite("donut.png", 6100,290,100,100,8)
 donut3 = GameSprite("donut.png", 11100,290,100,100,8)
 donut4 = GameSprite("donut.png", 13000,290,100,100,8)
 donuts = []
+score_d = 0
 donuts_g = sprite.Group()
 donuts_g.add(donut1)
 donuts_g.add(donut2)
