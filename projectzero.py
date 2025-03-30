@@ -115,7 +115,7 @@ class Button():
 window = display.set_mode((800,600))
 display.set_caption("Project Zero")
 background = transform.scale(image.load("background2.png"),(800,600))
-
+score_d = 0
 font1 = font.SysFont(None, 80)
 font2 = font.SysFont(None, 30)
 pobeda = font1.render('Ви виграли, дякуємо за гру!', True, (255, 255, 255))
@@ -150,7 +150,7 @@ bird_image_d = "Bird_d.png"
 Bird1 = Birds("bird_d.png", 400,100,30,20,8)
 Bird2 = Birds("bird_d.png", 1000,100,30,20,8)
 Bird3 = Birds("bird_d.png", 3500,100,30,20,8)
-Bird4 = Birds("bird_d.png", 6000,100,30,20,8)
+Bird4 = Birds("bird_d.png", 6300,100,30,20,8)
 Bird5 = Birds("bird_d.png", 7200,100,30,20,8)
 Bird6 = Birds("bird_d.png", 9000,100,30,20,8)
 Bird7 = Birds("bird_d.png", 11200,100,30,20,8)
@@ -159,7 +159,7 @@ Bird9 = Birds("bird_d.png", 14000,100,30,20,8)
 
 bench = "Bench.png"
 bench1 = GameSprite("bench.png", 200,400,130,110,8)
-bench2 = GameSprite("bench.png", 6000,400,130,110,8)
+bench2 = GameSprite("bench.png", 6100,400,130,110,8)
 bench3 = GameSprite("bench.png", 11000,400,130,110,8)
 benches_g = sprite.Group()
 benches_g.add(bench1)
@@ -177,12 +177,15 @@ bins_g.add(bin3)
 
 donut = "donut.png"
 donut1 = GameSprite("donut.png", 300,290,100,100,8)
-donut2 = GameSprite("donut.png", 6100,290,100,100,8)
+donut2 = GameSprite("donut.png", 6150,290,100,100,8)
 donut3 = GameSprite("donut.png", 11100,290,100,100,8)
 donut4 = GameSprite("donut.png", 13000,290,100,100,8)
-donuts = []
-score_d = 0
 donuts_g = sprite.Group()
+donuts = []
+donuts.append(donut1)
+donuts.append(donut2)
+donuts.append(donut3)
+donuts.append(donut4)
 donuts_g.add(donut1)
 donuts_g.add(donut2)
 donuts_g.add(donut3)
@@ -267,7 +270,6 @@ while game:
         if e.type == QUIT:
             game = False
     if finish != True:
-        window.blit(background, (0,0))
         window.blit(donut_score, (10,10))
         window.blit(background, (0,0))
         PlayerX1.reset()
@@ -385,7 +387,8 @@ while game:
         if sprite.collide_rect(PlayerX1, Bird9):
             finish = True
             window.blit(proigrish, (100,200))
-         for d in donuts:
+
+        for d in donuts:
             if sprite.collide_rect(PlayerX1, d):
                 donuts.remove(d)
                 d.kill()
