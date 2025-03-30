@@ -17,7 +17,7 @@ class Player(GameSprite):
         super().__init__(x, y, speed, size_x, size_y, player_speed)
         self.y_speed = 0 
         self.on_ground = False
-        k=0    
+        k=0
     def update(self):
         global k
         keys = key.get_pressed()
@@ -39,6 +39,13 @@ class Player(GameSprite):
             self.rect.y = 400
             self.y_speed = 0
             self.on_ground = True
+
+        if sprite.spritecollide(PlayerX1, benches_g, False):
+            k=1
+            PlayerX1.rect.y = 350
+            PlayerX1.rect.y -= PlayerX1.speed
+        else:
+            k=0
 k=0
 class Enemy(GameSprite):
     direction = "left"
@@ -152,14 +159,31 @@ bench = "Bench.png"
 bench1 = GameSprite("bench.png", 200,400,130,110,8)
 bench2 = GameSprite("bench.png", 6000,400,130,110,8)
 bench3 = GameSprite("bench.png", 11000,400,130,110,8)
+benches_g = sprite.Group()
+benches_g.add(bench1)
+benches_g.add(bench2)
+benches_g.add(bench3)
 
 bin = "Bin.png"
 bin1 = GameSprite("bin.png", 1100,420,100,80,8)
 bin2 = GameSprite("bin.png", 2800,420,100,80,8)
 bin3 = GameSprite("bin.png", 13000,420,100,80,8)
+bins_g = sprite.Group()
+bins_g.add(bin1)
+bins_g.add(bin2)
+bins_g.add(bin3)
 
 donut = "donut.png"
-donut1 = GameSprite("donut.png", 300,300,100,80,8)
+donut1 = GameSprite("donut.png", 300,290,100,100,8)
+donut2 = GameSprite("donut.png", 6100,290,100,100,8)
+donut3 = GameSprite("donut.png", 11100,290,100,100,8)
+donut4 = GameSprite("donut.png", 13000,290,100,100,8)
+donuts_g = sprite.Group()
+donuts_g.add(donut1)
+donuts_g.add(donut2)
+donuts_g.add(donut3)
+donuts_g.add(donut4)
+
 
 
 all_sprites.add(PlayerX1)
@@ -188,6 +212,9 @@ all_sprites.add(bin1)
 all_sprites.add(bin2)
 all_sprites.add(bin3)
 all_sprites.add(donut1)
+all_sprites.add(donut2)
+all_sprites.add(donut3)
+all_sprites.add(donut4)
                                 
 all_sprites.add(final_sprite)
 game = False
@@ -269,6 +296,9 @@ while game:
         bin3.update(450,700)
 
         donut1.update(450,700)
+        donut2.update(450,700)
+        donut3.update(450,700)
+        donut4.update(450,700)
 
          # проверяем границы экрана: 
         if (
@@ -291,7 +321,6 @@ while game:
         # нарисуем все спрайты на экранной поверхности до проверки на выигрыш/проигрыш
         # если в этой итерации цикла игра закончилась, то новый фон отрисуется поверх персонажей
         all_sprites.draw(window)  
-       
 
         if sprite.collide_rect(PlayerX1, Enemy1):
             finish = True
@@ -349,12 +378,22 @@ while game:
             finish = True
             window.blit(proigrish, (100,200))
 
-        print(sprite.collide_rect(PlayerX1, bench1),k)
-        if sprite.collide_rect(PlayerX1, bench1):
+        if sprite.spritecollide(PlayerX1, benches_g, False):
             k=1
-            PlayerX1.rect.y = 350 
+            PlayerX1.rect.y = 350
+            PlayerX1.rect.y -= PlayerX1.speed
         else:
             k=0
+
+        
+        if sprite.spritecollide(PlayerX1, bins_g, False):
+            k=1
+            PlayerX1.rect.y = 350
+            PlayerX1.rect.y -= PlayerX1.speed
+        else:
+            k=0
+
+        
         if sprite.collide_rect(PlayerX1, final_sprite):
             finish = True
             window.blit(pobeda, (50,200))
