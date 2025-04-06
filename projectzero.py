@@ -116,7 +116,7 @@ window = display.set_mode((800,600))
 display.set_caption("Project Zero")
 background = transform.scale(image.load("background2.png"),(800,600))
 score_d = 0
-font1 = font.SysFont(None, 80)
+font1 = font.SysFont(None, 50)
 font2 = font.SysFont(None, 30)
 pobeda = font1.render('Ви виграли, дякуємо за гру!', True, (255, 255, 255))
 proigrish = font1.render('Нажаль, ви не змогли пройти гру...', True, (180, 0, 0))
