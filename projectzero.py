@@ -233,6 +233,77 @@ left_bound = win_width / 20       # границы, за которые перс
 right_bound = win_width - 8 * left_bound
 shift = 0
 
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(800, 600)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(210, 330, 151, 41))
+        self.pushButton.setObjectName("pushButton")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(10, 20, 151, 41))
+        self.label.setObjectName("label")
+        self.radioButton = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton.setGeometry(QtCore.QRect(10, 70, 121, 31))
+        self.radioButton.setObjectName("radioButton")
+        self.radioButton_2 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_2.setGeometry(QtCore.QRect(10, 110, 121, 31))
+        self.radioButton_2.setObjectName("radioButton_2")
+        self.radioButton_3 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_3.setGeometry(QtCore.QRect(10, 150, 121, 31))
+        self.radioButton_3.setObjectName("radioButton_3")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(10, 200, 131, 16))
+        self.label_2.setObjectName("label_2")
+        self.radioButton_4 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_4.setGeometry(QtCore.QRect(10, 230, 121, 31))
+        self.radioButton_4.setObjectName("radioButton_4")
+        self.radioButton_5 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_5.setGeometry(QtCore.QRect(10, 260, 121, 31))
+        self.radioButton_5.setObjectName("radioButton_5")
+        self.radioButton_6 = QtWidgets.QRadioButton(self.centralwidget)
+        self.radioButton_6.setGeometry(QtCore.QRect(10, 290, 121, 31))
+        self.radioButton_6.setObjectName("radioButton_6")
+        self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.centralwidget)
+        self.dateTimeEdit.setGeometry(QtCore.QRect(390, 0, 194, 22))
+        self.dateTimeEdit.setObjectName("dateTimeEdit")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.pushButton.setText(_translate("MainWindow", "Save  Settings"))
+        self.label.setText(_translate("MainWindow", "Налаштування Графіки"))
+        self.radioButton.setText(_translate("MainWindow", "Низька"))
+        self.radioButton_2.setText(_translate("MainWindow", "Середня"))
+        self.radioButton_3.setText(_translate("MainWindow", "Висока"))
+        self.label_2.setText(_translate("MainWindow", "Налаштування рівню"))
+        self.radioButton_4.setText(_translate("MainWindow", "Простий"))
+        self.radioButton_5.setText(_translate("MainWindow", "Середній"))
+        self.radioButton_6.setText(_translate("MainWindow", "Високий"))
+    
+def settings():
+    if __name__ == "__main__":
+        import sys
+        app = QtWidgets.QApplication(sys.argv)
+        MainWindow = QtWidgets.QMainWindow()
+        ui = Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        MainWindow.show()
+        sys.exit(app.exec_())
+#settings()
 
 window=display.set_mode((800,600))
 display.set_caption("Місія: школа")
